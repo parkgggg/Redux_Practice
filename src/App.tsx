@@ -1,9 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 type Props = {
-  value: number;
+  value: any;
   onIncrement: () => void;
   onDecrement: () => void;
 }
@@ -11,7 +10,8 @@ type Props = {
 function App({value, onIncrement, onDecrement}: Props) {
   return (
     <div className="App">
-      Clicked:  {value}times
+      {/* 스토어에 (Number, []) 형태로 저장되어잇기 때문에 value로 바로 렌더링할 수 는 없음 value.todos || value.counter로 접근 가능*/}
+      {/* Clicked:  {value}times */}
       
       {/* 클릭하면 onIncrement(state+1 액션을 디스패치하는 함수) 콜 */}
       <button onClick={onIncrement}>
