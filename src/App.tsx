@@ -2,24 +2,27 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+type Props = {
+  value: number;
+  onIncrement: () => void;
+  onDecrement: () => void;
+}
+
+function App({value, onIncrement, onDecrement}: Props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Clicked:  {value}times
+      
+      {/* 클릭하면 onIncrement(state+1 액션을 디스패치하는 함수) 콜 */}
+      <button onClick={onIncrement}>
+        +
+      </button>      
+      {/* 클릭하면 onDecrement(state-1 액션을 디스패치하는 함수) 콜 */}
+      <button onClick={onDecrement}>
+        -
+      </button>
     </div>
+  
   );
 }
 
